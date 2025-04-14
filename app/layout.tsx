@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { APP_NAME, APP_DESCRIPTION, SERVER_URL } from "@/constants";
 import "./globals.css";
 
 const inter = Inter({
@@ -7,8 +8,12 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "ProStore",
-  description: "Udemy Tutorial from Traversy Media",
+  title: {
+    template: `%s | Prostore`,
+    default: APP_NAME,
+  },
+  description: APP_DESCRIPTION,
+  metadataBase: new URL(SERVER_URL),
 };
 
 export default function RootLayout({
