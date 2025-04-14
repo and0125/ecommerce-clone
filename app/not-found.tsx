@@ -1,34 +1,3 @@
-# Notes
-
-## Loading Page
-
-loading page: showing a spinner or text when the app is loading; styled in `loading.tsx`.
-
-Could use a package like React spinners, but this might be tough to use on dark and light modes; so he has a loader image we can use for this page.
-
-To test the loading page, add a delay to the home page component.
-
-```javascript
-//testing homepage
-import React from "react";
-
-export const metadata = {
-  title: "Home",
-};
-
-const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
-
-export default async function Home() {
-  await delay(2000);
-  return <div>Home</div>;
-}
-```
-
-## Not Found
-
-you can style this with the `not-found.tsx` page. This can be made into a client component, and will display the image, and use a button component.
-
-```javascript
 "use client";
 import { APP_NAME } from "@/lib/constants/";
 import Image from "next/image";
@@ -60,4 +29,3 @@ export default function NotFound() {
     </div>
   );
 }
-```
