@@ -11,3 +11,5 @@ Once we copied the code over, we put the new `Menu` component into the header.
 **NOTE**: for some reason, this refactor didn't work for me, so I kept the original component.
 
 Later on, we'll create a user button that will change when a user's signed in.
+
+**NOTE**: the big trick here is to use two different nav components; one that renders when the screen is large, and the other to render when the screen is small, instead of doing this adjustment by width.
