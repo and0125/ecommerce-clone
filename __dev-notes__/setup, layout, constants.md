@@ -69,5 +69,3 @@ export const metadata: Metadata = {
   metadataBase: new URL(SERVER_URL),
 };
 ```
-
-And we import the server url constant to complete this.
