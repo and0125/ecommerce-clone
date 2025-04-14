@@ -1,10 +1,17 @@
 import React from "react";
-import { ShoppingCart, UserIcon } from "lucide-react";
+import { EllipsisVertical, ShoppingCart, UserIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
 import ModeToggle from "./mode-toggle";
+import {
+  Sheet,
+  SheetContent,
+  SheetDescription,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet";
 
 export default function Header() {
   return (
@@ -27,17 +34,41 @@ export default function Header() {
         </div>
         {/* right side div */}
         <div className="space-x-2 flex items-center">
-          <ModeToggle />
-          <Button asChild variant="ghost">
-            <Link href={"/cart"}>
-              <ShoppingCart className="mr-2" /> Cart
-            </Link>
-          </Button>
-          <Button asChild>
-            <Link href={"/sign-in"}>
-              <UserIcon className="mr-2" /> Sign In
-            </Link>
-          </Button>
+          <nav>
+            <ModeToggle />
+            <Button asChild variant="ghost">
+              <Link href={"/cart"}>
+                <ShoppingCart className="mr-2" /> Cart
+              </Link>
+            </Button>
+            <Button asChild>
+              <Link href={"/sign-in"}>
+                <UserIcon className="mr-2" /> Sign In
+              </Link>
+            </Button>
+          </nav>
+          <nav className="md:hidden">
+            <Sheet>
+              <SheetTrigger>
+                <EllipsisVertical />
+              </SheetTrigger>
+              <SheetContent className="flex flex-col items-start">
+                <SheetTitle>Menu</SheetTitle>
+                <ModeToggle />
+                <Button asChild variant="ghost">
+                  <Link href={"/cart"}>
+                    <ShoppingCart className="mr-2" /> Cart
+                  </Link>
+                </Button>
+                <Button asChild>
+                  <Link href={"/sign-in"}>
+                    <UserIcon className="mr-2" /> Sign In
+                  </Link>
+                </Button>
+                <SheetDescription></SheetDescription>
+              </SheetContent>
+            </Sheet>
+          </nav>
         </div>
       </div>
     </header>
